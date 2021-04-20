@@ -38,6 +38,8 @@ public class ProductCategorySearchTest {
     @Autowired
     private MockMvc mockMvc;
 
+
+
     @MockBean
     RestTemplateClient restTemplateClient;
 
@@ -62,6 +64,9 @@ public class ProductCategorySearchTest {
 
     @Test
     public void retrieveDressesReduced_DefaultParam() throws Exception {
+        String mockedResponse = "{\"showInStockOnly\": true,\"products\": [{\"productId\": \"4919177\",\"type\": \"product\",\"title\": \"John Lewis & Partners Jersey Bandeau Dress, Blue\",\"price\": {\t\"was\": \"50.00\",\"then1\": \"\",\t\"then2\": \"\",\t\"now\": \"25.00\",\t\"uom\": \"\",\t\"currency\": \"GBP\"},\"colorSwatches\": [\t{\t\t\"color\": \"\",\t\t\"basicColor\": \"Blue\",\t\t\"colorSwatchUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612alt5?cropN=0.33473684210526317,0.7368421052631579,0.16842105263157894,0.16842105263157894&\",\t\t\"imageUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612?\",\t\t\"isAvailable\": true,\t\t\"skuId\": \"238460015\"}]}]}";
+        final SearchProductCategoryResponse searchProductCategoryResponse = objectMapper.readValue(mockedResponse, SearchProductCategoryResponse.class);
+        when(restTemplateClient.getForEntity(any(),any(),any())).thenReturn(searchProductCategoryResponse);
         final MockHttpServletResponse response = mockMvc
                 .perform(
                         get("/catalogue/products/dresses/reduced")
@@ -72,6 +77,10 @@ public class ProductCategorySearchTest {
 
     @Test
     public void retrieveDressesReduced_SHOWWASNOW() throws Exception {
+        String mockedResponse = "{\"showInStockOnly\": true,\"products\": [{\"productId\": \"4919177\",\"type\": \"product\",\"title\": \"John Lewis & Partners Jersey Bandeau Dress, Blue\",\"price\": {\t\"was\": \"50.00\",\"then1\": \"\",\t\"then2\": \"\",\t\"now\": \"25.00\",\t\"uom\": \"\",\t\"currency\": \"GBP\"},\"colorSwatches\": [\t{\t\t\"color\": \"\",\t\t\"basicColor\": \"Blue\",\t\t\"colorSwatchUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612alt5?cropN=0.33473684210526317,0.7368421052631579,0.16842105263157894,0.16842105263157894&\",\t\t\"imageUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612?\",\t\t\"isAvailable\": true,\t\t\"skuId\": \"238460015\"}]}]}";
+        final SearchProductCategoryResponse searchProductCategoryResponse = objectMapper.readValue(mockedResponse, SearchProductCategoryResponse.class);
+        when(restTemplateClient.getForEntity(any(),any(),any())).thenReturn(searchProductCategoryResponse);
+
         final MockHttpServletResponse response = mockMvc
                 .perform(
                         get("/catalogue/products/dresses/reduced")
@@ -84,6 +93,9 @@ public class ProductCategorySearchTest {
 
     @Test
     public void retrieveDressesReduced_SHOWWASTHENNOW() throws Exception {
+        String mockedResponse = "{\"showInStockOnly\": true,\"products\": [{\"productId\": \"4919177\",\"type\": \"product\",\"title\": \"John Lewis & Partners Jersey Bandeau Dress, Blue\",\"price\": {\t\"was\": \"50.00\",\"then1\": \"\",\t\"then2\": \"\",\t\"now\": \"25.00\",\t\"uom\": \"\",\t\"currency\": \"GBP\"},\"colorSwatches\": [\t{\t\t\"color\": \"\",\t\t\"basicColor\": \"Blue\",\t\t\"colorSwatchUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612alt5?cropN=0.33473684210526317,0.7368421052631579,0.16842105263157894,0.16842105263157894&\",\t\t\"imageUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612?\",\t\t\"isAvailable\": true,\t\t\"skuId\": \"238460015\"}]}]}";
+        final SearchProductCategoryResponse searchProductCategoryResponse = objectMapper.readValue(mockedResponse, SearchProductCategoryResponse.class);
+        when(restTemplateClient.getForEntity(any(),any(),any())).thenReturn(searchProductCategoryResponse);
         final MockHttpServletResponse response = mockMvc
                 .perform(
                         get("/catalogue/products/dresses/reduced")
@@ -103,6 +115,7 @@ public class ProductCategorySearchTest {
 
     @Test
     public void retrieveDressesReduced_JLApi_Fail() throws Exception {
+
         when(restTemplateClient.getForEntity(any(),any(),any())).thenThrow(new RecordNotFoundException("No Data Found"));
         mockMvc
                 .perform(
@@ -203,6 +216,9 @@ public class ProductCategorySearchTest {
 
     @Test
     public void retrieveDressesReduced_SHOWPERCDISCOUNT() throws Exception {
+        String mockedResponse = "{\"showInStockOnly\": true,\"products\": [{\"productId\": \"4919177\",\"type\": \"product\",\"title\": \"John Lewis & Partners Jersey Bandeau Dress, Blue\",\"price\": {\t\"was\": \"50.00\",\"then1\": \"49.00\",\t\"then2\": \"\",\t\"now\": \"29.00\",\t\"uom\": \"\",\t\"currency\": \"GBP\"},\"colorSwatches\": [\t{\t\t\"color\": \"\",\t\t\"basicColor\": \"Blue\",\t\t\"colorSwatchUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612alt5?cropN=0.33473684210526317,0.7368421052631579,0.16842105263157894,0.16842105263157894&\",\t\t\"imageUrl\": \"//johnlewis.scene7.com/is/image/JohnLewis/004823612?\",\t\t\"isAvailable\": true,\t\t\"skuId\": \"238460015\"}]}]}";
+        final SearchProductCategoryResponse searchProductCategoryResponse = objectMapper.readValue(mockedResponse, SearchProductCategoryResponse.class);
+        when(restTemplateClient.getForEntity(any(),any(),any())).thenReturn(searchProductCategoryResponse);
         final MockHttpServletResponse response = mockMvc
                 .perform(
                         get("/catalogue/products/dresses/reduced")
