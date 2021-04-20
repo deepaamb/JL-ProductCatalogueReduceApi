@@ -24,7 +24,8 @@ This application is packaged as a war which has Tomcat 8 embedded. No Tomcat or 
 or
        gradle bootRun
 ```
-
+## Documentation
+[Swagger](http://localhost:8080/swagger-ui.html) - `http://localhost:8080/swagger-ui.html`- Documentation & Testing
 
 ## Testing API
 
