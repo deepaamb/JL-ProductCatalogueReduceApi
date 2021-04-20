@@ -7,7 +7,7 @@ A Restful webservice written using SpringBoot which returns the list of dresses 
 For building and running the application you need:
 
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Maven 3](https://maven.apache.org)
+- [Gradle 5](https://gradle.org)
 
 ## Running the application locally
 
@@ -26,4 +26,13 @@ or
 ```
 
 
+## Testing API
 
+
+### Testing with Gradle
+
+*	Run only unit tests:
+
+```shell
+$ gradlew clean test
+```
