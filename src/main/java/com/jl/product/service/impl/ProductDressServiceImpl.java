@@ -64,7 +64,7 @@ public class ProductDressServiceImpl implements ProductDressService {
         reducedDressResponse.setCurrency(product.getPrice().getCurrency());
         reducedDressResponse.setNowPrice(product.getPrice().getNow());
         reducedDressResponse.setWasPrice(product.getPrice().getWas());
-        reducedDressResponse.setThenPrice(StringUtils.isNotEmpty(product.getPrice().getThen1()) ? product.getPrice().getThen1() : product.getPrice().getThen2());
+        reducedDressResponse.setThenPrice(StringUtils.isNotEmpty(product.getPrice().getThen2()) ? product.getPrice().getThen2() : product.getPrice().getThen1());
         reducedDressResponse.setReducedPrice(reducedPrice);
         product.getColorSwatches().stream().forEach(colorSwatch -> {
             final ReducedDressResponse.ColorSwatch reducecolorSwatch = new ReducedDressResponse.ColorSwatch();
