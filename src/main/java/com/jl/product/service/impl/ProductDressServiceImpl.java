@@ -20,6 +20,7 @@ import org.springframework.util.MultiValueMap;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -52,8 +53,10 @@ public class ProductDressServiceImpl implements ProductDressService {
                 }
             });
         }
+
         if(responses.size() == 0)
             throw new RecordNotFoundException("There are no reduced dresses at the moment");
+        responses.sort(Comparator.comparing(ReducedDressResponse::getReducedPrice).reversed());
         return responses;
     }
 
